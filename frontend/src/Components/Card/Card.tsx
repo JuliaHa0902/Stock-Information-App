@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import "./Card.css";
+import { CompanySearch } from '../../company';
+import AddPortfolio from '../Portfolio/AddPortfolio/AddPortfolio';
 
 interface Props {
-    companyName: string;
-    ticker: string;
-    price: number;
+    id: string;
+    searchResult: CompanySearch;
+    onPorfolioCreate: (e : SyntheticEvent) => void;
 }
 
-const Card: React.FC<Props> = ({ companyName, ticker, price }: Props): JSX.Element => {
+const Card: React.FC<Props> = ({ id, searchResult, onPorfolioCreate }: Props): JSX.Element => {
   return (
     <div className="card">
+        <img alt="company logo"/>
         <div className="details">
-            <img src="data:image/png;base64,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" alt="Logo"/>
-            <h2>{companyName} ({ticker})</h2>
-            <p>${price}</p>
+            <h2>{searchResult.name} ({searchResult.symbol})</h2>
+            <p>{searchResult.currency}</p>
         </div>
         <p className="info">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            {searchResult.exchangeShortName} - {searchResult.stockExchange}
         </p>
+        <AddPortfolio onPorfolioCreate={onPorfolioCreate} symbol={searchResult.symbol}/>
     </div>
   )
 }
