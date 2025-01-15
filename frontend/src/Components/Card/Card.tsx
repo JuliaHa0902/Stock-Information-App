@@ -11,13 +11,15 @@ interface Props {
 
 const Card: React.FC<Props> = ({ id, searchResult, onPorfolioCreate }: Props): JSX.Element => {
   return (
-    <div className="card">
+    <div 
+      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row" 
+      key={id} 
+      id={id}
+    >
         <img alt="company logo"/>
-        <div className="details">
-            <h2>{searchResult.name} ({searchResult.symbol})</h2>
-            <p>{searchResult.currency}</p>
-        </div>
-        <p className="info">
+        <h2 className="font-bold text-center text-veryDarkViolet md:text-left">{searchResult.name} ({searchResult.symbol})</h2>
+        <p className="text-veryDarkBlue">{searchResult.currency}</p>
+        <p className="font-bold text-veryDarkBlue">
             {searchResult.exchangeShortName} - {searchResult.stockExchange}
         </p>
         <AddPortfolio onPorfolioCreate={onPorfolioCreate} symbol={searchResult.symbol}/>
