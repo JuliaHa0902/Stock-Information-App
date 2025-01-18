@@ -17,7 +17,7 @@ const DesignPage = (props: Props) => {
         <h1>Design Page</h1>
         <h2>This is our design page. This is where we will house various deisng aspects of the app</h2>
         <RadioList data={testIncomeStatementData} config={tableConfig}/>
-        <Table />
+        <Table data={testIncomeStatementData} configs={tableConfig}/>
     </div>
   )
 }
