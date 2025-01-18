@@ -24,7 +24,7 @@ const CompanyPage = (props: Props) => {
         {company ? (
             <div>
                 <Sidebar />
-                <CompanyDashboard>
+                <CompanyDashboard ticker={ticker!}>
                     <Tile title="Company Name" subTitle={company.companyName}/>
                 </CompanyDashboard>
             </div>
