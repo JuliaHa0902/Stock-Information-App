@@ -3,6 +3,7 @@ import { CompanyBalanceSheet } from '../../company';
 import { useOutletContext } from 'react-router-dom';
 import { getBalanceSheet } from '../../api';
 import RadioList from '../RadioList/RadioList';
+import Spinner from '../Spinner/Spinner';
 
 type Props = {}
 const config = [
@@ -75,7 +76,7 @@ const BalanceSheet = (props: Props) => {
             {balanceSheet ? (
                 <RadioList config={config} data={balanceSheet} />
             ) : (
-                <div>Loading...</div>
+                <Spinner/>
             )}
         </div>
     )

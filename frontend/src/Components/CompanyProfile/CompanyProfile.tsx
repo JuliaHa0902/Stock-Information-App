@@ -3,6 +3,7 @@ import { CompanyKeyMetrics } from '../../company';
 import { useOutletContext } from 'react-router-dom';
 import { getKeyMetrics } from '../../api';
 import RadioList from '../RadioList/RadioList';
+import Spinner from '../Spinner/Spinner';
 
 type Props = {}
 
@@ -82,7 +83,7 @@ const CompanyProfile = (props: Props) => {
       { companyData ? (
         <RadioList data={companyData} config={tableConfig}/>
       ) : (
-        <>Loading...</>
+        <Spinner />
       )}
     </div>
   )
